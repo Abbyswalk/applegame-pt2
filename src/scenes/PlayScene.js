@@ -18,6 +18,8 @@ class PlayScene extends Phaser.Scene {
         bg.displayWidth = this.sys.game.config.width;
         bg.displayHeight = this.sys.game.config.height;
 
+        this.appleCatchSound = this.sound.add('appleCatch');
+
         this.add.image(400, 250, 'tree').setScale(0.15);
 
         this.score = 0;
@@ -78,6 +80,7 @@ collectApple(basket, apple) {
     apple.destroy();
     this.score += 1;
     this.scoreText.setText('Score: ' + this.score);
+        this.appleCatchSound.play({ volume: 0.4 });
 
     if (this.score >= 20) {
         this.scene.start('GameOverScene', { win: true });
