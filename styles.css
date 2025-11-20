@@ -1,28 +1,24 @@
-/* Reset default browser styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body: center the game canvas and give a nice background */
 body {
     display: flex;
-    justify-content: center;   /* horizontal center */
-    align-items: center;       /* vertical center */
-    height: 100vh;             /* full viewport height */
-    background: linear-gradient(to bottom, #a0e7e5, #b4f8c8); /* soft gradient background */
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    background: linear-gradient(to bottom, #a0e7e5, #b4f8c8);
     font-family: Arial, sans-serif;
 }
 
-/* Canvas: add a subtle border and shadow */
 canvas {
-    border: 5px solid #fff;      /* clean white frame */
-    border-radius: 15px;         /* rounded corners */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);  /* soft shadow */
+    border: 5px solid #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4); 
 }
 
-/* Text elements overlay (like score, lives) */
 .text-overlay {
     position: absolute;
     top: 20px;
@@ -30,10 +26,9 @@ canvas {
     color: #fff;
     font-size: 24px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-    z-index: 10;  /* make sure it's on top of canvas */
+    z-index: 10; 
 }
 
-/* Optional: style GameOver screen text */
 .game-over-text {
     font-size: 32px;
     color: #333;
@@ -41,14 +36,13 @@ canvas {
     margin-bottom: 20px;
 }
 
-/* GameOver screen text */
 .game-over-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 48px;
     color: #222;
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.4); /* optional soft shadow */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
 }
 
 .game-over-tip {
