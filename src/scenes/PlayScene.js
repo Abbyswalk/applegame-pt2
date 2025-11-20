@@ -7,8 +7,9 @@ class PlayScene extends Phaser.Scene {
         this.load.image('background', 'assets/background.jpg');
         this.load.image('tree', 'assets/tree.png');
         this.load.image('apple', 'assets/apple.png');
-        this.load.image('junk', 'assets/junk.png');   // only ONE junk image
+        this.load.image('junk', 'assets/junk.png'); 
         this.load.image('basket', 'assets/basket.png');
+        this.load.audio('appleCatch', 'assets/apple-catch.mp3');
     }
 
     create() {
@@ -83,6 +84,7 @@ class PlayScene extends Phaser.Scene {
 
 collectApple(basket, apple) {
     apple.destroy();
+    this.sound.play('appleCatch', { volume: 0.4 });
     this.score += 1;
     this.scoreText.setText('Score: ' + this.score);
 
