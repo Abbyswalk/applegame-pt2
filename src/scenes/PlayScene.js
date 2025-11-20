@@ -9,7 +9,7 @@ class PlayScene extends Phaser.Scene {
         this.load.image('apple', 'assets/apple.png');
         this.load.image('junk', 'assets/junk.png'); 
         this.load.image('basket', 'assets/basket.png');
-        this.load.audio('appleCatch', 'assets/apple-catch.mp3');
+        this.load.audio('appleCatch', 'assets/applecatch.mp3');
     }
 
     create() {
