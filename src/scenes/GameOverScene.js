@@ -4,17 +4,15 @@ class GameOverScene extends Phaser.Scene {
     }
 
     init(data) {
-        this.win = data.win; // true if player won
+        this.win = data.win; 
     }
 
     create() {
         const centerX = this.cameras.main.width / 2;
         const centerY = this.cameras.main.height / 2;
 
-        // Background color
-        this.cameras.main.setBackgroundColor('#87CEEB'); // optional soft blue
+        this.cameras.main.setBackgroundColor('#87CEEB'); 
 
-        // Title text
         const titleText = this.win ? "You Win!" : "Game Over!";
         this.add.text(centerX, centerY - 80, titleText)
             .setOrigin(0.5)
@@ -35,9 +33,8 @@ class GameOverScene extends Phaser.Scene {
                 }
             });
 
-        // Healthy eating tips
         const winTips = [
-            "Great job! Eat more fruits and veggies for a healthy body!",
+            "Great job! Eat more fruits and veggies for a healthy lifestyle!",
             "Awesome! A balanced diet keeps you strong and energized.",
             "Fantastic! Healthy snacks like apples are a great choice every day."
         ];
@@ -62,7 +59,6 @@ class GameOverScene extends Phaser.Scene {
             color: '#333'
         });
 
-        // Restart instruction
         this.add.text(centerX, centerY + 80, "Click anywhere to play again")
             .setOrigin(0.5)
             .setStyle({
@@ -72,7 +68,6 @@ class GameOverScene extends Phaser.Scene {
                 color: '#555'
             });
 
-        // Click anywhere to restart the game
         this.input.on('pointerdown', () => {
             this.scene.start('PlayScene');
         });

@@ -7,10 +7,8 @@ class MenuScene extends Phaser.Scene {
         const centerX = this.cameras.main.width / 2;
         const centerY = this.cameras.main.height / 2;
 
-        // Background color
         this.cameras.main.setBackgroundColor('#87CEEB');
 
-        // Game title
         this.add.text(centerX, centerY - 120, "An Apple a Day", {
             fontFamily: 'Montserrat, sans-serif',
             fontSize: '56px',
@@ -28,7 +26,6 @@ class MenuScene extends Phaser.Scene {
             }
         }).setOrigin(0.5);
 
-        // Subtitle
         this.add.text(centerX, centerY - 40, "Keeps the Doctor Away", {
             fontFamily: 'Montserrat, sans-serif',
             fontSize: '28px',
@@ -36,7 +33,6 @@ class MenuScene extends Phaser.Scene {
             color: '#333'
         }).setOrigin(0.5);
 
-        // Instructions
         this.add.text(centerX, centerY + 60, "Use ← → to move the basket\nCatch apples, avoid junk!", {
             fontFamily: 'Montserrat, sans-serif',
             fontSize: '22px',
@@ -46,7 +42,6 @@ class MenuScene extends Phaser.Scene {
             lineSpacing: 10
         }).setOrigin(0.5);
 
-        // Start button text
         const startText = this.add.text(centerX, centerY + 140, "Click anywhere to Start", {
             fontFamily: 'Montserrat, sans-serif',
             fontSize: '24px',
@@ -54,12 +49,10 @@ class MenuScene extends Phaser.Scene {
             color: '#000'
         }).setOrigin(0.5);
 
-        // Button hover effect
         startText.setInteractive({ useHandCursor: true });
         startText.on('pointerover', () => startText.setStyle({ color: '#ff4500' }));
         startText.on('pointerout', () => startText.setStyle({ color: '#000' }));
 
-        // Start the game on click
         this.input.on('pointerdown', () => {
             this.scene.start('PlayScene');
         });

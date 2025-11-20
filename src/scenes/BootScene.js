@@ -9,6 +9,7 @@ class BootScene extends Phaser.Scene {
         this.load.image('background', 'src/assets/background.jpg');
         this.load.image('junk', 'src/assets/junk.png');
         this.load.image('tree', 'src/assets/tree.png');
+        this.load.audio('appleCatch', 'src/assets/applecatch.mp3');
     }
 
     create() {

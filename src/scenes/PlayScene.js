@@ -14,15 +14,12 @@ class PlayScene extends Phaser.Scene {
 
     create() {
 
-        // --- FULLSCREEN BACKGROUND ---
         const bg = this.add.image(0, 0, 'background').setOrigin(0);
         bg.displayWidth = this.sys.game.config.width;
         bg.displayHeight = this.sys.game.config.height;
 
-        // --- TREE IMAGE ---
         this.add.image(400, 250, 'tree').setScale(0.15);
 
-        // --- SCORE ---
         this.score = 0;
         this.lives = 5;
 
@@ -40,19 +37,16 @@ class PlayScene extends Phaser.Scene {
             strokeThickness: 3
         });
 
-        // --- PLAYER BASKET ---
         this.basket = this.physics.add.sprite(400, 560, 'basket').setScale(0.8);
         this.basket.setCollideWorldBounds(true);
         this.basket.body.allowGravity = false;
-        this.basketSpeed = 600; // faster movement
+        this.basketSpeed = 600;
 
         this.cursors = this.input.keyboard.createCursorKeys();
 
-        // --- GROUPS ---
         this.apples = this.physics.add.group();
         this.junk = this.physics.add.group();
 
-        // --- APPLE SPAWNER ---
         this.time.addEvent({
             delay: 1000,
             callback: () => {
@@ -64,7 +58,6 @@ class PlayScene extends Phaser.Scene {
             loop: true
         });
 
-        // --- JUNK FOOD SPAWNER (single image only) ---
         this.time.addEvent({
             delay: 1800,
             callback: () => {
@@ -77,18 +70,16 @@ class PlayScene extends Phaser.Scene {
             loop: true
         });
 
-        // --- COLLISIONS ---
         this.physics.add.overlap(this.basket, this.apples, this.collectApple, null, this);
         this.physics.add.overlap(this.basket, this.junk, this.hitJunk, null, this);
     }
 
 collectApple(basket, apple) {
     apple.destroy();
-    this.sound.play('appleCatch', { volume: 0.4 });
     this.score += 1;
     this.scoreText.setText('Score: ' + this.score);
 
-    if (this.score >= 20) { // or whatever your target is
+    if (this.score >= 20) {
         this.scene.start('GameOverScene', { win: true });
     }
 }
@@ -103,9 +94,7 @@ hitJunk(basket, junk) {
     }
 }
 
-
     update() {
-        // --- PLAYER MOVEMENT ---
         if (this.cursors.left.isDown) {
             this.basket.setVelocityX(-this.basketSpeed);
         } else if (this.cursors.right.isDown) {
@@ -129,8 +118,6 @@ this.apples.getChildren().forEach(apple => {
     }
 });
 
-
-        // Remove off-screen junk (no penalty)
         this.junk.getChildren().forEach(j => {
             if (j.y > 600) j.destroy();
         });
